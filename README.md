@@ -10,6 +10,9 @@ Module to pack values to buffers
 
 ### Usage:
 
+Functions ends with `BE` = Big endian
+Funtcions ends with `LE` = Little endian
+
 NOTICE: Tested only with small values
 
 ``` go
