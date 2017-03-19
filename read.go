@@ -31,24 +31,26 @@ func (self *Buffer) ReadBool() bool {
 
 // LITTLE ENDIAN
 
-func (self *Buffer) ReadIntLE() int32 {
+func (self *Buffer) ReadIntLE() int {
 	// Int
 	i := self.read("i", 4)
-	return int32(reflect.ValueOf(i).Uint())
+	return int(reflect.ValueOf(i).Uint())
 }
-func (self *Buffer) ReadUIntLE() uint32 {
+func (self *Buffer) ReadUIntLE() uint {
 	// unsigned int
 	ui := self.read("I", 4)
-	return uint32(reflect.ValueOf(ui).Uint())
+	return uint(reflect.ValueOf(ui).Uint())
 }
 
 func (self *Buffer) ReadInt32LE() int32 {
 	// long
-	return self.ReadIntLE()
+	i := self.read("i", 4)
+	return int32(reflect.ValueOf(i).Uint())
 }
 func (self *Buffer) ReadUInt32LE() uint32 {
 	// unsigned long
-	return self.ReadUIntLE()
+	ui := self.read("I", 4)
+	return uint32(reflect.ValueOf(ui).Uint())
 }
 
 func (self *Buffer) ReadInt64LE() int64 {
@@ -96,24 +98,26 @@ func (self *Buffer) ReadStringLE() string {
 
 // BIG ENDIAN
 
-func (self *Buffer) ReadIntBE() int32 {
+func (self *Buffer) ReadIntBE() int {
 	// Int
 	i := self.read("!i", 4)
-	return int32(reflect.ValueOf(i).Uint())
+	return int(reflect.ValueOf(i).Uint())
 }
-func (self *Buffer) ReadUIntBE() uint32 {
+func (self *Buffer) ReadUIntBE() uint {
 	// unsigned int
 	ui := self.read("!I", 4)
-	return uint32(reflect.ValueOf(ui).Uint())
+	return uint(reflect.ValueOf(ui).Uint())
 }
 
 func (self *Buffer) ReadInt32BE() int32 {
 	// long
-	return self.ReadIntBE()
+	i := self.read("!i", 4)
+	return int32(reflect.ValueOf(i).Uint())
 }
 func (self *Buffer) ReadUInt32BE() uint32 {
 	// unsigned long
-	return self.ReadUIntBE()
+	ui := self.read("!I", 4)
+	return uint32(reflect.ValueOf(ui).Uint())
 }
 
 func (self *Buffer) ReadInt64BE() int64 {
